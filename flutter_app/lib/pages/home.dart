@@ -65,7 +65,7 @@ class _HomeState extends State<Home> {
                           image: "images/salad2.jpeg",
                           title: "Veggie Taco Hash",
                           subtitle: "Fresh and healthy food",
-                          description: "A delicious and healthy veggie taco hash.",
+                          description: "A veggie taco salad is a hearty and customizable salad featuring a bed of lettuce or other greens topped with various vegetables, beans, and sometimes cheese, all served with a flavorful dressing, often a taco-inspired one. ",
                           price: "\$12"
                         )));
                       },
@@ -105,7 +105,7 @@ class _HomeState extends State<Home> {
                           title: "Mediterranean Salad",
                           subtitle: "crunchy and delicious",
                           description: "A delicious and healthy Mediterranean salad.",
-                          price: "\$12"
+                          price: "12"
                         )));
                       },
                       child: Container(
@@ -293,51 +293,110 @@ class _HomeState extends State<Home> {
 
                 SizedBox(height:30.0),
 
-                SingleChildScrollView(
-                  child: Container(
-                    margin:EdgeInsets.only(right:10.0),
-                    child: Material(
-                      elevation: 5.0,
-                      borderRadius: BorderRadius.circular(20),
-                      child: Container(
-                        padding: EdgeInsets.all(3),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                          Image.asset("images/salad2.jpeg", 
-                          height:120,
-                           width:120,
-                           fit:BoxFit.cover),
-                      
-                           SizedBox(width:20.0),
-                           Column(children: [
-                            Container(
-                              width:MediaQuery.of(context).size.width/2,
-                              child: Text("Mediteranean chick Salad",
-                              style: AppWidget.SemiBoldTextFieldStyle()),
-                              
-                            ),
-                            SizedBox(height:5.0),
-                      
-                             Container(
-                              width:MediaQuery.of(context).size.width/2,
-                              child: Text("Honey goot cheese",
-                              style: AppWidget.LightTextFieldStyle()),
-                              
-                            ),
-                      
-                            Container(
-                              width:MediaQuery.of(context).size.width/2,
-                              child: Text("\$20",
-                              style: AppWidget.SemiBoldTextFieldStyle()),
-                              
-                            )
-                           ],)
-                        ],),
+Expanded(
+  child: SingleChildScrollView(
+    scrollDirection: Axis.vertical,
+    child: Column(
+      children: [
+        Container(
+          margin: EdgeInsets.only(right: 10.0),
+          child: Material(
+            elevation: 5.0,
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              padding: EdgeInsets.all(3),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset("images/salad2.jpeg", 
+                    height: 120, width: 120, fit: BoxFit.cover),
+                  SizedBox(width: 20.0),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width / 2,
+                        child: Text("Mediterranean Chick Salad",
+                          style: AppWidget.SemiBoldTextFieldStyle(),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
-                    ),
+                      SizedBox(height: 5.0),
+                      Container(
+                        width: MediaQuery.of(context).size.width / 2,
+                        child: Text("Honey Goat Cheese",
+                          style: AppWidget.LightTextFieldStyle(),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width / 2,
+                        child: Text("\$20",
+                          style: AppWidget.SemiBoldTextFieldStyle(),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        SizedBox(height: 20.0),
+
+        Container( // Second Card
+          margin: EdgeInsets.only(right: 10.0),
+          child: Material(
+            elevation:5.0,
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              padding: EdgeInsets.all(3),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset("images/salad2.jpeg", 
+                    height: 120, width: 120, fit: BoxFit.cover),
+                  SizedBox(width: 20.0),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width / 2,
+                        child: Text("Mediterranean Chick Salad",
+                          style: AppWidget.SemiBoldTextFieldStyle(),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      SizedBox(height: 5.0),
+                      Container(
+                        width: MediaQuery.of(context).size.width / 2,
+                        child: Text("Honey Goat Cheese",
+                          style: AppWidget.LightTextFieldStyle(),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width / 2,
+                        child: Text("\$20",
+                          style: AppWidget.SemiBoldTextFieldStyle(),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    ),
+  ),
+)
+
                   
                 
           ],
