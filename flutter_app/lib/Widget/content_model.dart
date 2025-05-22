@@ -24,6 +24,6 @@ List<UnboardingContent> contents = [
   UnboardingContent(
     image: "images/screen3.png",
     title: "Get started now",
-    description: "Join us and start your journey today.",
+    description: "Join us and begin your journey today.",
   ),
 ];
