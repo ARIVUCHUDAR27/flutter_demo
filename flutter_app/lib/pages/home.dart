@@ -159,6 +159,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
+                  
                   SizedBox(width: 15.0),
                   GestureDetector(
                     onTap: () {
@@ -231,6 +232,7 @@ class _HomeState extends State<Home> {
                         ),
                       );
                     },
+
                     child: Container(
                       margin: EdgeInsets.all(4),
                       child: Material(
@@ -492,6 +494,66 @@ class _HomeState extends State<Home> {
                                     child: Text(
                                       "\$20",
                                       style: AppWidget.SemiBoldTextFieldStyle(),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    
+                    SizedBox(height: 20.0),
+                    Container(
+                      // Third Card
+                      margin: EdgeInsets.only(right: 10.0),
+                      child: Material(
+                        elevation: 5.0,
+                        borderRadius: BorderRadius.circular(20),
+                        child: Container(
+                          padding: EdgeInsets.all(3),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Image.asset(
+                                "images/salad2.jpeg",
+                                height: 120,
+                                width: 120,
+                                fit: BoxFit.cover,
+                              ),
+                              SizedBox(width: 20.0),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width / 2,
+                                    child: Text(
+                                      "Mediterranean Chick Salad",
+                                      style: AppWidget.SemiBoldTextFieldStyle(),
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                  SizedBox(height: 5.0),
+                                  SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width / 2,
+                                    child: Text(
+                                      "Honey Goat Cheese",
+                                      style: AppWidget.LightTextFieldStyle(),
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width / 2,
+                                    child: Text(
+                                      "\$20",
+                                      style:
+                                          AppWidget.SemiBoldTextFieldStyle(),
                                     ),
                                   ),
                                 ],
