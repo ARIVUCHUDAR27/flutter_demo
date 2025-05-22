@@ -91,7 +91,8 @@ class _OnState extends State<Onboard> {
               );
             },
             child: Container(
-              decoration: BoxDecoration(color: Colors.red),
+              decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(20)),
+              alignment: Alignment.center,
               height: 60,
               margin: EdgeInsets.all(40),
               width: double.infinity,
