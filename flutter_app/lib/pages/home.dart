@@ -11,18 +11,66 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   bool icecream = false, pizza = false, burger = false, salad = false;
+  bool _showSearch = false;
+  TextEditingController _searchController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: const EdgeInsets.only(top: 50.0, left: 40.0),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+          colors: [Colors.white, Colors.pink.shade50],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          ),
+        ),
+        margin: const EdgeInsets.only(top: 20.0,left: 10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Hello Luna,", style: AppWidget.boldTextFieldStyle()),
+                Text("Hello Luna👋", style: AppWidget.boldTextFieldStyle()),
+
+                Row(children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                    child: AnimatedContainer(
+                      duration: Duration(milliseconds: 300),
+                      width: _showSearch ? 180 : 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(
+                          color: Colors.pink.shade100,
+                        ),
+                      ),
+                      child: _showSearch
+                          ? TextField(
+                              controller: _searchController,
+                              style: TextStyle(fontSize: 14),
+                              decoration: InputDecoration(
+                                hintText: 'Search...',
+                                hintStyle: TextStyle(color: Colors.grey),
+                                border: InputBorder.none,
+                                isDense: true,
+                                contentPadding: EdgeInsets.symmetric(vertical: 6, horizontal: 10.0),
+                              ),
+                            )
+                          : IconButton(
+                              icon: Icon(Icons.search, color: Colors.black),
+                              onPressed: () {
+                                setState(() {
+                                  _showSearch = !_showSearch;
+                                });
+                              },
+                            ),
+                    ),
+                  ),
+                ],),
 
                 Container(
                   margin: EdgeInsets.only(right: 20.0),
@@ -53,7 +101,10 @@ SingleChildScrollView(
     children: [
       // Card 1
       GestureDetector(
-        onTap: () {
+        onTap: () async {
+          await precacheImage(
+            AssetImage("images/salad2.jpeg"),
+             context,);
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -309,7 +360,7 @@ SingleChildScrollView(
             context,
             MaterialPageRoute(
               builder: (context) => Details(
-                image: "images/salad8.jpeg",
+                image: "images/salad6.jpeg",
                 title: "Berry Delight",
                 subtitle: "Sweet & fresh",
                 description: "A colorful salad with strawberries, blueberries, and greens.",
@@ -328,7 +379,7 @@ SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset("images/salad8.jpeg", height: 150, width: 150, fit: BoxFit.cover),
+                  Image.asset("images/salad6.jpeg", height: 150, width: 150, fit: BoxFit.cover),
                   Text("Berry Delight", style: AppWidget.SemiBoldTextFieldStyle()),
                   SizedBox(height: 5.0),
                   Text("Sweet & fresh", style: AppWidget.LightTextFieldStyle()),
@@ -349,7 +400,7 @@ SingleChildScrollView(
             context,
             MaterialPageRoute(
               builder: (context) => Details(
-                image: "images/salad9.jpeg",
+                image: "images/salad7.jpeg",
                 title: "Fiesta Mix",
                 subtitle: "Mexican inspired",
                 description: "Beans, corn, and avocado with a spicy dressing.",
@@ -368,7 +419,7 @@ SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset("images/salad9.jpeg", height: 150, width: 150, fit: BoxFit.cover),
+                  Image.asset("images/salad7.jpeg", height: 150, width: 150, fit: BoxFit.cover),
                   Text("Fiesta Mix", style: AppWidget.SemiBoldTextFieldStyle()),
                   SizedBox(height: 5.0),
                   Text("Mexican inspired", style: AppWidget.LightTextFieldStyle()),
@@ -383,21 +434,39 @@ SingleChildScrollView(
     ],
   ),
 ),
+            SizedBox(height: 20.0),
+Padding(
+  padding: const EdgeInsets.only(left: 12.0), // Adjust the value as needed
+  child: Text(
+    "Popular Items",
+    style: AppWidget.HeaderTextFieldStyle(),
+  ),
+),
+
+
+SizedBox(height: 10.0),
+
+
+Divider(
+  color: Colors.grey,
+  height:30.0,
+  thickness: 1.0,
+),
 
             
-            SizedBox(height: 30.0),
+            SizedBox(height: 10.0),
             Expanded(
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Column(
                   children: [
                     Container(
-                      margin: EdgeInsets.only(right: 10.0),
+                      margin: EdgeInsets.only(right: 10.0,left: 10.0),
                       child: Material(
                         elevation: 5.0,
                         borderRadius: BorderRadius.circular(20),
                         child: Container(
-                          padding: EdgeInsets.all(3),
+                          padding: EdgeInsets.all(4),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -451,17 +520,17 @@ SingleChildScrollView(
                     SizedBox(height: 20.0),
                     Container(
                       // Third Card
-                      margin: EdgeInsets.only(right: 10.0),
+                      margin: EdgeInsets.only(right: 10.0,left:10.0),
                       child: Material(
                         elevation: 5.0,
                         borderRadius: BorderRadius.circular(20),
                         child: Container(
-                          padding: EdgeInsets.all(3),
+                          padding: EdgeInsets.all(4),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Image.asset(
-                                "images/salad2.jpeg",
+                                "images/salad4.jpeg",
                                 height: 120,
                                 width: 120,
                                 fit: BoxFit.cover,
@@ -517,127 +586,102 @@ SingleChildScrollView(
     );
   }
 
-  Widget showItem() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        GestureDetector(
-          onTap: () {
-            pizza = true;
-            burger = false;
-            icecream = false;
-            salad = false;
-            setState(() {});
-          },
-          child: Material(
-            elevation: 5.0,
-            borderRadius: BorderRadius.circular(10.0),
-            child: Container(
-              decoration: BoxDecoration(
-                color:
-                    pizza
-                        ? const Color.fromARGB(255, 141, 185, 221)
-                        : Colors.white,
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              padding: EdgeInsets.all(8),
-              child: Image.asset(
-                "images/pizza.jpeg",
-                height: 50,
-                width: 50,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+ Widget showItem() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      _buildSelectableItem(
+        isSelected: pizza,
+        imagePath: "images/pizza.jpeg",
+        onTap: () {
+          pizza = true;
+          burger = false;
+          icecream = false;
+          salad = false;
+          setState(() {});
+        },
+      ),
+      _buildSelectableItem(
+        isSelected: burger,
+        imagePath: "images/burger.jpeg",
+        onTap: () {
+          burger = true;
+          pizza = false;
+          icecream = false;
+          salad = false;
+          setState(() {});
+        },
+      ),
+      _buildSelectableItem(
+        isSelected: salad,
+        imagePath: "images/salad.jpeg",
+        onTap: () {
+          salad = true;
+          pizza = false;
+          icecream = false;
+          burger = false;
+          setState(() {});
+        },
+      ),
+      _buildSelectableItem(
+        isSelected: icecream,
+        imagePath: "images/ice-cream.jpeg",
+        onTap: () {
+          icecream = true;
+          pizza = false;
+          burger = false;
+          salad = false;
+          setState(() {});
+        },
+      ),
+    ],
+  );
+}
+
+Widget _buildSelectableItem({
+  required bool isSelected,
+  required String imagePath,
+  required VoidCallback onTap,
+}) {
+  return Material(
+    elevation: isSelected ? 8.0 : 2.0,
+    borderRadius: BorderRadius.circular(12.0),
+    child: InkWell(
+      borderRadius: BorderRadius.circular(12.0),
+      onTap: onTap,
+      splashColor: Colors.pink.shade50.withOpacity(0.6),
+      highlightColor: Colors.pink.shade50.withOpacity(0.3),
+      child: Container(
+        decoration: BoxDecoration(
+          color: isSelected
+              ? Colors.pink.shade50.withOpacity(0.5)
+              : Colors.white,
+          borderRadius: BorderRadius.circular(12.0),
+          border: isSelected
+              ? Border.all(
+                  color: Colors.pink.shade300,
+                  width: 3,
+                )
+              : Border.all(color: Colors.transparent),
+          boxShadow: isSelected
+              ? [
+                  BoxShadow(
+                    color: Colors.pink.shade100.withOpacity(0.5),
+                    blurRadius: 10,
+                    offset: Offset(0, 5),
+                  )
+                ]
+              : [],
         ),
-        GestureDetector(
-          onTap: () {
-            burger = true;
-            pizza = false;
-            icecream = false;
-            salad = false;
-            setState(() {});
-          },
-          child: Material(
-            elevation: 5.0,
-            borderRadius: BorderRadius.circular(10.0),
-            child: Container(
-              decoration: BoxDecoration(
-                color:
-                    burger
-                        ? const Color.fromARGB(255, 141, 185, 221)
-                        : Colors.white,
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              padding: EdgeInsets.all(8),
-              child: Image.asset(
-                "images/burger.jpeg",
-                height: 50,
-                width: 50,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+        padding: const EdgeInsets.all(8),
+        child: Image.asset(
+          imagePath,
+          height: 50,
+          width: 50,
+          fit: BoxFit.cover,
         ),
-        GestureDetector(
-          onTap: () {
-            salad = true;
-            pizza = false;
-            icecream = false;
-            burger = false;
-            setState(() {});
-          },
-          child: Material(
-            elevation: 5.0,
-            borderRadius: BorderRadius.circular(10.0),
-            child: Container(
-              decoration: BoxDecoration(
-                color:
-                    salad
-                        ? const Color.fromARGB(255, 141, 185, 221)
-                        : Colors.white,
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              padding: EdgeInsets.all(8),
-              child: Image.asset(
-                "images/salad.jpeg",
-                height: 50,
-                width: 50,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            icecream = true;
-            pizza = false;
-            burger = false;
-            salad = false;
-            setState(() {});
-          },
-          child: Material(
-            elevation: 5.0,
-            borderRadius: BorderRadius.circular(10.0),
-            child: Container(
-              decoration: BoxDecoration(
-                color:
-                    icecream
-                        ? const Color.fromARGB(255, 141, 185, 221)
-                        : Colors.white,
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              padding: EdgeInsets.all(8),
-              child: Image.asset(
-                "images/ice-cream.jpeg",
-                height: 50,
-                width: 50,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
+      ),
+    ),
+  );
+}
 }
