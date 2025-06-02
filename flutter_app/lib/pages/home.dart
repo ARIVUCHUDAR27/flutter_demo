@@ -46,343 +46,346 @@ class _HomeState extends State<Home> {
             ),
             SizedBox(height: 20.0),
             Container(margin: EdgeInsets.only(right: 20.0), child: showItem()),
-            SizedBox(height: 30.0),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
+SizedBox(height: 30.0),
+SingleChildScrollView(
+  scrollDirection: Axis.horizontal,
+  child: Row(
+    children: [
+      // Card 1
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Details(
+                image: "images/salad2.jpeg",
+                title: "Veggie Taco Hash",
+                subtitle: "Fresh and healthy food",
+                description:
+                    "A veggie taco salad is a hearty and customizable salad featuring a bed of lettuce or other greens topped with various vegetables, beans, and sometimes cheese, all served with a flavorful dressing, often a taco-inspired one.",
+                price: "\$12",
+              ),
+            ),
+          );
+        },
+        child: Container(
+          margin: EdgeInsets.all(1),
+          child: Material(
+            elevation: 5.0,
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder:
-                              (context) => Details(
-                                image: "images/salad2.jpeg",
-                                title: "Veggie Taco Hash",
-                                subtitle: "Fresh and healthy food",
-                                description:
-                                    "A veggie taco salad is a hearty and customizable salad featuring a bed of lettuce or other greens topped with various vegetables, beans, and sometimes cheese, all served with a flavorful dressing, often a taco-inspired one. ",
-                                price: "\$12",
-                              ),
-                        ),
-                      );
-                    },
-                    child: Container(
-                      margin: EdgeInsets.all(1),
-                      child: Material(
-                        elevation: 5.0,
-                        borderRadius: BorderRadius.circular(20),
-                        child: Container(
-                          padding: EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image.asset(
-                                "images/salad2.jpeg",
-                                height: 150,
-                                width: 150,
-                                fit: BoxFit.cover,
-                              ),
-                              Text(
-                                "Veggie Taco Hash",
-                                style: AppWidget.SemiBoldTextFieldStyle(),
-                              ),
-                              SizedBox(height: 5.0),
-                              Text(
-                                "Fresh and healthy food",
-                                style: AppWidget.LightTextFieldStyle(),
-                              ),
-                              SizedBox(height: 5.0),
-                              Text(
-                                "\$12",
-                                style: AppWidget.SemiBoldTextFieldStyle(),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
+                  Image.asset(
+                    "images/salad2.jpeg",
+                    height: 150,
+                    width: 150,
+                    fit: BoxFit.cover,
                   ),
-                  SizedBox(width: 15.0), //GAP BT CONTAINERS
-
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder:
-                              (context) => Details(
-                                image: "images/salad3.jpeg",
-                                title: "Mediterranean Salad",
-                                subtitle: "crunchy and delicious",
-                                description:
-                                    "A delicious and healthy Mediterranean salad.",
-                                price: "12",
-                              ),
-                        ),
-                      );
-                    },
-                    child: Container(
-                      margin: EdgeInsets.all(1),
-                      child: Material(
-                        elevation: 5.0,
-                        borderRadius: BorderRadius.circular(20),
-                        child: Container(
-                          padding: EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image.asset(
-                                "images/salad3.jpeg",
-                                height: 150,
-                                width: 150,
-                                fit: BoxFit.cover,
-                              ),
-                              Text(
-                                "Chick Salad",
-                                style: AppWidget.SemiBoldTextFieldStyle(),
-                              ),
-                              SizedBox(height: 5.0),
-                              Text(
-                                "crunchy and delicious",
-                                style: AppWidget.LightTextFieldStyle(),
-                              ),
-                              SizedBox(height: 5.0),
-                              Text(
-                                "\$12",
-                                style: AppWidget.SemiBoldTextFieldStyle(),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  
-                  SizedBox(width: 15.0),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder:
-                              (context) => Details(
-                                image: "images/salad4.jpeg",
-                                title: "Mediterranean Salad",
-                                subtitle: "crunchy and delicious",
-                                description:
-                                    "A delicious and healthy Mediterranean salad.",
-                                price: "\$12",
-                              ),
-                        ),
-                      );
-                    },
-                    child: Container(
-                      margin: EdgeInsets.all(4),
-                      child: Material(
-                        elevation: 5.0,
-                        borderRadius: BorderRadius.circular(20),
-                        child: Container(
-                          padding: EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image.asset(
-                                "images/salad4.jpeg",
-                                height: 150,
-                                width: 150,
-                                fit: BoxFit.cover,
-                              ),
-                              Text(
-                                "Veggie Salad",
-                                style: AppWidget.SemiBoldTextFieldStyle(),
-                              ),
-                              SizedBox(height: 5.0),
-                              Text(
-                                "crunchy and delicious",
-                                style: AppWidget.LightTextFieldStyle(),
-                              ),
-                              SizedBox(height: 5.0),
-                              Text(
-                                "\$12",
-                                style: AppWidget.SemiBoldTextFieldStyle(),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 15.0),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder:
-                              (context) => Details(
-                                image: "images/salad5.jpeg",
-                                title: "Caesar Salad",
-                                subtitle: "crunchy and delicious",
-                                description:
-                                    "A delicious and healthy Mediterranean salad.",
-                                price: "\$12",
-                              ),
-                        ),
-                      );
-                    },
-
-                    child: Container(
-                      margin: EdgeInsets.all(4),
-                      child: Material(
-                        elevation: 5.0,
-                        borderRadius: BorderRadius.circular(20),
-                        child: Container(
-                          padding: EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image.asset(
-                                "images/salad5.jpeg",
-                                height: 150,
-                                width: 150,
-                                fit: BoxFit.cover,
-                              ),
-                              Text(
-                                "Caesar Salad",
-                                style: AppWidget.SemiBoldTextFieldStyle(),
-                              ),
-                              SizedBox(height: 5.0),
-                              Text(
-                                "crunchy and delicious",
-                                style: AppWidget.LightTextFieldStyle(),
-                              ),
-                              SizedBox(height: 5.0),
-                              Text(
-                                "\$12",
-                                style: AppWidget.SemiBoldTextFieldStyle(),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 15.0),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder:
-                              (context) => Details(
-                                image: "images/salad6.jpeg",
-                                title: "Greek Salad",
-                                subtitle: "crunchy and delicious",
-                                description:
-                                    "A delicious and healthy Mediterranean salad.",
-                                price: "\$12",
-                              ),
-                        ),
-                      );
-                    },
-                    child: Container(
-                      margin: EdgeInsets.all(4),
-                      child: Material(
-                        elevation: 5.0,
-                        borderRadius: BorderRadius.circular(20),
-                        child: Container(
-                          padding: EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image.asset(
-                                "images/salad6.jpeg",
-                                height: 150,
-                                width: 150,
-                                fit: BoxFit.cover,
-                              ),
-                              Text(
-                                "Greek Salad",
-                                style: AppWidget.SemiBoldTextFieldStyle(),
-                              ),
-                              SizedBox(height: 5.0),
-                              Text(
-                                "crunchy and delicious",
-                                style: AppWidget.LightTextFieldStyle(),
-                              ),
-                              SizedBox(height: 5.0),
-                              Text(
-                                "\$12",
-                                style: AppWidget.SemiBoldTextFieldStyle(),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 15.0),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder:
-                              (context) => Details(
-                                image: "images/salad7.jpeg",
-                                title: "Jello Salad",
-                                subtitle: "crunchy and delicious",
-                                description:
-                                    "A delicious and healthy Mediterranean salad.",
-                                price: "\$12",
-                              ),
-                        ),
-                      );
-                    },
-                    child: Container(
-                      margin: EdgeInsets.all(4),
-                      child: Material(
-                        elevation: 5.0,
-                        borderRadius: BorderRadius.circular(20),
-                        child: Container(
-                          padding: EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image.asset(
-                                "images/salad7.jpeg",
-                                height: 150,
-                                width: 150,
-                                fit: BoxFit.cover,
-                              ),
-                              Text(
-                                "Jello Salad",
-                                style: AppWidget.SemiBoldTextFieldStyle(),
-                              ),
-                              SizedBox(height: 5.0),
-                              Text(
-                                "crunchy and delicious",
-                                style: AppWidget.LightTextFieldStyle(),
-                              ),
-                              SizedBox(height: 5.0),
-                              Text(
-                                "\$12",
-                                style: AppWidget.SemiBoldTextFieldStyle(),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  Text("Veggie Taco Hash", style: AppWidget.SemiBoldTextFieldStyle()),
+                  SizedBox(height: 5.0),
+                  Text("Fresh and healthy food", style: AppWidget.LightTextFieldStyle()),
+                  SizedBox(height: 5.0),
+                  Text("\$12", style: AppWidget.SemiBoldTextFieldStyle()),
                 ],
               ),
             ),
+          ),
+        ),
+      ),
+      SizedBox(width: 15.0),
 
+      // Card 2
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Details(
+                image: "images/salad3.jpeg",
+                title: "Chick Salad",
+                subtitle: "crunchy and delicious",
+                description: "A delicious and healthy Mediterranean salad.",
+                price: "\$12",
+              ),
+            ),
+          );
+        },
+        child: Container(
+          margin: EdgeInsets.all(1),
+          child: Material(
+            elevation: 5.0,
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    "images/salad3.jpeg",
+                    height: 150,
+                    width: 150,
+                    fit: BoxFit.cover,
+                  ),
+                  Text("Chick Salad", style: AppWidget.SemiBoldTextFieldStyle()),
+                  SizedBox(height: 5.0),
+                  Text("crunchy and delicious", style: AppWidget.LightTextFieldStyle()),
+                  SizedBox(height: 5.0),
+                  Text("\$12", style: AppWidget.SemiBoldTextFieldStyle()),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+      SizedBox(width: 15.0),
+
+      // Card 3
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Details(
+                image: "images/salad4.jpeg",
+                title: "Caesar Salad",
+                subtitle: "Classic flavor",
+                description: "Romaine, croutons, and Caesar dressing.",
+                price: "\$14",
+              ),
+            ),
+          );
+        },
+        child: Container(
+          margin: EdgeInsets.all(1),
+          child: Material(
+            elevation: 5.0,
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset("images/salad4.jpeg", height: 150, width: 150, fit: BoxFit.cover),
+                  Text("Caesar Salad", style: AppWidget.SemiBoldTextFieldStyle()),
+                  SizedBox(height: 5.0),
+                  Text("Classic flavor", style: AppWidget.LightTextFieldStyle()),
+                  SizedBox(height: 5.0),
+                  Text("\$14", style: AppWidget.SemiBoldTextFieldStyle()),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+      SizedBox(width: 15.0),
+
+      // Card 4
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Details(
+                image: "images/salad5.jpeg",
+                title: "Greek Salad",
+                subtitle: "Feta & olives",
+                description: "Fresh tomatoes, cucumbers, onions, olives, and feta cheese.",
+                price: "\$13",
+              ),
+            ),
+          );
+        },
+        child: Container(
+          margin: EdgeInsets.all(1),
+          child: Material(
+            elevation: 5.0,
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset("images/salad5.jpeg", height: 150, width: 150, fit: BoxFit.cover),
+                  Text("Greek Salad", style: AppWidget.SemiBoldTextFieldStyle()),
+                  SizedBox(height: 5.0),
+                  Text("Feta & olives", style: AppWidget.LightTextFieldStyle()),
+                  SizedBox(height: 5.0),
+                  Text("\$13", style: AppWidget.SemiBoldTextFieldStyle()),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+      SizedBox(width: 15.0),
+
+      // Card 5
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Details(
+                image: "images/salad6.jpeg",
+                title: "Avocado Mix",
+                subtitle: "Creamy and green",
+                description: "Avocado slices with greens and light citrus dressing.",
+                price: "\$15",
+              ),
+            ),
+          );
+        },
+        child: Container(
+          margin: EdgeInsets.all(1),
+          child: Material(
+            elevation: 5.0,
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset("images/salad6.jpeg", height: 150, width: 150, fit: BoxFit.cover),
+                  Text("Avocado Mix", style: AppWidget.SemiBoldTextFieldStyle()),
+                  SizedBox(height: 5.0),
+                  Text("Creamy and green", style: AppWidget.LightTextFieldStyle()),
+                  SizedBox(height: 5.0),
+                  Text("\$15", style: AppWidget.SemiBoldTextFieldStyle()),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+      SizedBox(width: 15.0),
+
+      // Card 6
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Details(
+                image: "images/salad7.jpeg",
+                title: "Quinoa Power",
+                subtitle: "Superfood bowl",
+                description: "Quinoa with vegetables and a zesty lemon dressing.",
+                price: "\$16",
+              ),
+            ),
+          );
+        },
+        child: Container(
+          margin: EdgeInsets.all(1),
+          child: Material(
+            elevation: 5.0,
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset("images/salad7.jpeg", height: 150, width: 150, fit: BoxFit.cover),
+                  Text("Quinoa Power", style: AppWidget.SemiBoldTextFieldStyle()),
+                  SizedBox(height: 5.0),
+                  Text("Superfood bowl", style: AppWidget.LightTextFieldStyle()),
+                  SizedBox(height: 5.0),
+                  Text("\$16", style: AppWidget.SemiBoldTextFieldStyle()),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+      SizedBox(width: 15.0),
+
+      // Card 7
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Details(
+                image: "images/salad8.jpeg",
+                title: "Berry Delight",
+                subtitle: "Sweet & fresh",
+                description: "A colorful salad with strawberries, blueberries, and greens.",
+                price: "\$13",
+              ),
+            ),
+          );
+        },
+        child: Container(
+          margin: EdgeInsets.all(1),
+          child: Material(
+            elevation: 5.0,
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset("images/salad8.jpeg", height: 150, width: 150, fit: BoxFit.cover),
+                  Text("Berry Delight", style: AppWidget.SemiBoldTextFieldStyle()),
+                  SizedBox(height: 5.0),
+                  Text("Sweet & fresh", style: AppWidget.LightTextFieldStyle()),
+                  SizedBox(height: 5.0),
+                  Text("\$13", style: AppWidget.SemiBoldTextFieldStyle()),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+      SizedBox(width: 15.0),
+
+      // Card 8
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Details(
+                image: "images/salad9.jpeg",
+                title: "Fiesta Mix",
+                subtitle: "Mexican inspired",
+                description: "Beans, corn, and avocado with a spicy dressing.",
+                price: "\$14",
+              ),
+            ),
+          );
+        },
+        child: Container(
+          margin: EdgeInsets.all(1),
+          child: Material(
+            elevation: 5.0,
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset("images/salad9.jpeg", height: 150, width: 150, fit: BoxFit.cover),
+                  Text("Fiesta Mix", style: AppWidget.SemiBoldTextFieldStyle()),
+                  SizedBox(height: 5.0),
+                  Text("Mexican inspired", style: AppWidget.LightTextFieldStyle()),
+                  SizedBox(height: 5.0),
+                  Text("\$14", style: AppWidget.SemiBoldTextFieldStyle()),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    ],
+  ),
+),
+
+            
             SizedBox(height: 30.0),
-
             Expanded(
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
@@ -444,66 +447,7 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20.0),
-
-                    Container(
-                      // Second Card
-                      margin: EdgeInsets.only(right: 10.0),
-                      child: Material(
-                        elevation: 5.0,
-                        borderRadius: BorderRadius.circular(20),
-                        child: Container(
-                          padding: EdgeInsets.all(3),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image.asset(
-                                "images/salad2.jpeg",
-                                height: 120,
-                                width: 120,
-                                fit: BoxFit.cover,
-                              ),
-                              SizedBox(width: 20.0),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(
-                                    width:
-                                        MediaQuery.of(context).size.width / 2,
-                                    child: Text(
-                                      "Mediterranean Chick Salad",
-                                      style: AppWidget.SemiBoldTextFieldStyle(),
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ),
-                                  SizedBox(height: 5.0),
-                                  SizedBox(
-                                    width:
-                                        MediaQuery.of(context).size.width / 2,
-                                    child: Text(
-                                      "Honey Goat Cheese",
-                                      style: AppWidget.LightTextFieldStyle(),
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width:
-                                        MediaQuery.of(context).size.width / 2,
-                                    child: Text(
-                                      "\$20",
-                                      style: AppWidget.SemiBoldTextFieldStyle(),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    
+ 
                     SizedBox(height: 20.0),
                     Container(
                       // Third Card
